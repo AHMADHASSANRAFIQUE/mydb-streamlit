@@ -4,4 +4,3 @@ from .index import IndexManager
 from .query import Query, QueryAction
 from .queryParser import parse_my_query
 from .transaction import Transaction
-from .errors import DatabaseError, ValidationError, CollectionError, QueryError, TransactionError, IndexError
