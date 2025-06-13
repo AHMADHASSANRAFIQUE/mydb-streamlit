@@ -19,7 +19,7 @@ class MyDB:
         self.cache = {}
         self.collection_metadata = {}
         self.github_token = os.environ.get("GITHUB_TOKEN")
-        self.github_repo = os.environ.get("GITHUB_REPO", "AHMADHASSANRAFIQUE/mydb-streamlit")
+        self.github_repo = os.environ.get("GITHUB_REPO", "your-username/mydb-streamlit")
         self.load_metadata()
 
     def debounce_save(self):
