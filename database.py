@@ -1,6 +1,6 @@
 import json
 import os
-import time
+from github import Github
 from threading import Lock
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple
@@ -18,6 +18,8 @@ class MyDB:
         self.save_interval = 1.0
         self.cache = {}
         self.collection_metadata = {}
+        self.github_token = os.environ.get("GITHUB_TOKEN")
+        self.github_repo = os.environ.get("GITHUB_REPO", "AHMADHASSANRAFIQUE/mydb-streamlit")
         self.load_metadata()
 
     def debounce_save(self):
@@ -36,10 +38,26 @@ class MyDB:
                 "indexes": {k: {vk: list(vv) for vk, vv in v.items()} for k, v in collection.indexes.items()}
             }
         try:
-            with open(self.file_path, 'w') as f:
-                json.dump(db_state, f, indent=2)
+            g = Github(self.github_token)
+            repo = g.get_repo(self.github_repo)
+            try:
+                file = repo.get_contents(self.file_path, ref="main")
+                repo.update_file(
+                    self.file_path,
+                    f"Update {self.file_path}",
+                    json.dumps(db_state, indent=2),
+                    file.sha,
+                    branch="main"
+                )
+            except:
+                repo.create_file(
+                    self.file_path,
+                    f"Create {self.file_path}",
+                    json.dumps(db_state, indent=2),
+                    branch="main"
+                )
         except Exception as e:
-            raise Exception(f"Failed to save database to {self.file_path}: {e}")
+            raise Exception(f"Failed to save database to GitHub: {e}")
 
     def load_metadata(self):
         if os.path.exists(self.file_path):
@@ -342,7 +360,6 @@ class Collection:
             if query.filter and query.filter["type"] == "compare":
                 fields = [query.filter.get("field")]
                 if len(query.conditions) > 1:
-                    # Check for multi-field index
                     condition_fields = sorted(query.conditions.keys())
                     index_key = ",".join(condition_fields)
                     if index_key in self.indexes:
