@@ -1,0 +1,179 @@
+{
+  "user": {
+    "schema": [],
+    "data": {
+      "1": {
+        "name": "Don",
+        "age": "20",
+        "_id": "1",
+        "created_at": "2025-05-13T12:39:44"
+      },
+      "2": {
+        "name": "Priya Singh",
+        "age": "19",
+        "_id": "2",
+        "created_at": "2025-05-13T12:46:54"
+      }
+    },
+    "indexes": {}
+  },
+  "student": {
+    "schema": [],
+    "data": {
+      "1": {
+        "name": "Amit Sharma",
+        "roll_no": "S101",
+        "grade": "A+",
+        "age": "20",
+        "_id": "1",
+        "created_at": "2025-05-13T12:45:04",
+        "updated_at": "2025-05-13T12:49:05"
+      },
+      "2": {
+        "name": "Sonia Gupta",
+        "roll_no": "S104",
+        "grade": "A+",
+        "age": "15",
+        "_id": "2",
+        "created_at": "2025-05-13T22:30:32",
+        "updated_at": "2025-05-13T22:33:57"
+      },
+      "3": {
+        "name": "Vikram Rao",
+        "roll_no": "S105",
+        "grade": "A",
+        "age": "22",
+        "_id": "3",
+        "created_at": "2025-05-13T22:44:15"
+      },
+      "4": {
+        "name": "Rahul Verma",
+        "roll_no": "S103",
+        "grade": "A",
+        "age": "21",
+        "_id": "4",
+        "created_at": "2025-05-13T22:44:36"
+      },
+      "5": {
+        "name": "Priya Singh",
+        "roll_no": "S102",
+        "grade": "B",
+        "age": "19",
+        "_id": "5",
+        "created_at": "2025-05-13T22:44:49"
+      },
+      "6": {
+        "name": "Sonia Gupta",
+        "roll_no": "S104",
+        "grade": "B",
+        "age": "20",
+        "_id": "6",
+        "created_at": "2025-05-13T22:45:01"
+      },
+      "7": {
+        "name": "Amit Sharma",
+        "roll_no": "S101",
+        "grade": "A",
+        "age": "20",
+        "_id": "7",
+        "created_at": "2025-05-13T22:45:12"
+      },
+      "8": {
+        "name": "Neha Patel",
+        "roll_no": "S106",
+        "grade": "A",
+        "age": "20",
+        "_id": "8",
+        "created_at": "2025-05-13T22:57:59"
+      }
+    },
+    "indexes": {
+      "roll_no": {
+        "S101": [
+          "7",
+          "1"
+        ],
+        "S104": [
+          "2",
+          "6"
+        ],
+        "S105": [
+          "3"
+        ],
+        "S103": [
+          "4"
+        ],
+        "S102": [
+          "5"
+        ],
+        "S106": [
+          "8"
+        ]
+      },
+      "grade": {
+        "A+": [
+          "2",
+          "1"
+        ],
+        "A": [
+          "4",
+          "7",
+          "8",
+          "3"
+        ],
+        "B": [
+          "5",
+          "6"
+        ]
+      },
+      "name,age": {
+        "Amit Sharma|20": [
+          "7",
+          "1"
+        ],
+        "Sonia Gupta|15": [
+          "2"
+        ],
+        "Vikram Rao|22": [
+          "3"
+        ],
+        "Rahul Verma|21": [
+          "4"
+        ],
+        "Priya Singh|19": [
+          "5"
+        ],
+        "Sonia Gupta|20": [
+          "6"
+        ],
+        "Neha Patel|20": [
+          "8"
+        ]
+      }
+    }
+  },
+  "course": {
+    "schema": [],
+    "data": {
+      "1": {
+        "student_id": "S101",
+        "course_name": "Math",
+        "_id": "1",
+        "created_at": "2025-05-13T22:54:31"
+      },
+      "2": {
+        "student_id": "S102",
+        "course_name": "Science",
+        "_id": "2",
+        "created_at": "2025-05-13T22:54:45"
+      },
+      "3": {
+        "student_id": "S101",
+        "course_name": "Physics",
+        "_id": "3",
+        "created_at": "2025-05-13T22:54:56"
+      }
+    },
+    "indexes": {}
+  }
+}
