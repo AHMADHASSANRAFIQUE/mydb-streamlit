@@ -4,6 +4,7 @@ from collections import defaultdict
 from github import Github
 import json
 import os
+import time
 
 class IndexManager:
     @staticmethod
