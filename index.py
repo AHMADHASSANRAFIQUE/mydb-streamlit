@@ -23,7 +23,7 @@ class IndexManager:
         try:
             existing_index = {}
             github_token = os.environ.get("GITHUB_TOKEN")
-            github_repo = os.environ.get("GITHUB_REPO", "AHMADHASSANRAFIQUE/mydb-streamlit")
+            github_repo = os.environ.get("GITHUB_REPO", "your-username/mydb-streamlit")
             g = Github(github_token)
             repo = g.get_repo(github_repo)
             try:
